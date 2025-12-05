@@ -6,11 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>3D Model Viewer</title>
 
-  <!-- Load a pinned version of <model-viewer> from a CDN -->
-  <!-- If you ever see network issues, you can swap this for Google's CDN:
-       https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js -->
-  https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/dist/model-viewer.min.js
-  </script>
+  <!-- Load <model-viewer> from CDN -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0script>
 
   <style>
     html, body { height: 100%; margin: 0; }
@@ -35,10 +32,13 @@
   </style>
 </head>
 <body>
-  <!-- Use the GitHub Pages URL for your GLB (NOT raw.githubusercontent.com) -->
+  <!-- IMPORTANT: Use the GitHub Pages URL (NOT raw.githubusercontent.com) -->
   <model-viewer id="mv"
-    src="https://brintellieng.github.io/3d-model/PumpRoom-comp.glb?v=6"
+    src="https://brintellieng.github.io/3d-model/PumpRoom-comp.glb?v=7"
     alt="Pump Room"
     camera-controls
     auto-rotate
     ar
+    ar-modes="webxr scene-viewer quick-look"
+    environment-image="neutral"
+    exposure="1"
