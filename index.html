@@ -1,11 +1,25 @@
 
-<!doctype html>
-<html>
-  <meta charset="utf-8">
-  <title>Pages Test</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <body style="font-family: system-ui; margin: 2rem;">
-    <h1>GitHub Pages is working</h1>
-    <p>If you see this, we’ll add the 3D viewer next.</p>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Model Viewer</title>
+
+  <!-- Load model-viewer -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min html, body { height: 100%; margin: 0; }
+    body { display: grid; place-items: center; background: #f5f7fa; font-family: system-ui, Arial, sans-serif; }
+    model-viewer { width: min(100%, 900px); height: 600px; background: #fff; }
+    .info { margin-top: 12px; color: #555; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <model-viewer id="mv"
+    src="https://brintellieng.github.io/3d-model/PumpRoom-comp.glb"
+    alt="Pump Room"
+    camera-controls
+    auto-rotate
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    environment-image="neutral"
+    exposure="1"
