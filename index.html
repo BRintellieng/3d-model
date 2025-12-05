@@ -3,68 +3,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>3D Model Viewer — Diagnostics</title>
+  <title>3D Model Viewer</title>
 
-  <!-- Try jsDelivr first (pinned), then Google's CDN as fallback -->
-  <script type="module">
-    // Prefer jsDelivr
-    import 'https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/dist/model-viewer.min.js';
-    console.log('[diag] Loaded model-viewer from jsDelivr');
-  </script>
-  <script type="module" onerror="console.error('[diag] Fallback CDN script failed')">
-    // Fallback to Google’s CDN if the first import fails (network/extension)
-    import 'https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js';
-    console.log('[diag] Loaded model-viewer from Google CDN');
+  <!-- Load ONE copy of <model-viewer> -->
+  https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/dist/model-viewer.min.js
   </script>
 
   <style>
     html, body { height: 100%; margin: 0; }
-    body { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 12px;
-           padding: 20px; background: #f5f7fa; font-family: system-ui, Arial, sans-serif; }
-    h1 { margin: 0; font-size: 18px; color: #333; }
-    .box { padding: 10px 12px; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; width: min(100%, 920px); }
-    model-viewer { width: min(100%, 900px); height: 600px; background: #fff; }
-    code { background: #f1f5f9; padding: 2px 5px; border-radius: 4px; }
+    body {
+      display: grid;
+      place-items: center;
+      background: #f5f7fa;
+      font-family: system-ui, Arial, sans-serif;
+    }
+    model-viewer {
+      width: min(100%, 900px);
+      height: 600px;
+      background: #ffffff;
+    }
   </style>
 </head>
 <body>
-  <h1>GitHub Pages + &lt;model-viewer&gt; — Diagnostics</h1>
-
-  <div class="box">
-    <p><strong>Step A — Page loaded.</strong></p>
-    <p>MIME type seen by the browser: <code id="mime"></code></p>
-    <p>If you don’t see the 3D viewer below after a few seconds, open DevTools (F12) → <em>Network</em> and <em>Console</em> and tell me what you see.</p>
-  </div>
-
-  <model-viewer id="mv"
-    src="https://brintellieng.github.io/3d-model/PumpRoom-comp.glb?v=8"
+  <model-viewer
+    src="https://brintellieng.github.io/3d-model/PumpRoom-comp.glb?v=9"
     alt="Pump Room"
     camera-controls
     auto-rotate
-    ar
-    ar-modes="webxr scene-viewer quick-look"
-    environment-image="neutral"
-    exposure="1"
-    poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'%3E%3Crect width='100%25' height='100%25' fill='%23ffffff'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='28' fill='%23999'%el is reachable (downloading directly in a tab is normal).</li>
-    </ul>
-  </div>
-
-  <script>
-    // Show MIME type the browser thinks it got back (helpful if HTML is served as text/plain)
-    document.getElementById('mime').textContent = document.contentType || 'unknown';
-
-    // Log model-viewer lifecycle
-    const mv = document.getElementById('mv');
-    mv.addEventListener('load', () => console.log('[diag] Model loaded OK'));
-    mv.addEventListener('error', (e) => console.error('[diag] model-viewer error event:', e));
-
-    console.log('[diag] Page script ran');
-  </script>
-
-  <noscript>
-    <div class="box">JavaScript is disabled. Enable JS to view the 3D model.</div>
-  </noscript>
-</body>
-</html>
