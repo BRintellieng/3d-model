@@ -3,11 +3,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>3D Model Viewer</title>
 
-  <!-- Load model-viewer from jsDelivr (one import only) -->
   <script type="module">
     import 'https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/dist/model-viewer.min.js';
     console.log('[init] model-viewer loaded');
@@ -20,20 +18,14 @@
   </style>
 </head>
 <body>
-
-  <!-- The actual viewer -->
   <model-viewer id="mv"
     src="./PumpRoom-comp.glb"
     camera-controls
     auto-rotate
     environment-image="neutral"
     exposure="1.0"
-   mv');
-    mv.addEventListener('load', () => console.log('[mv] Model loaded OK'));
-    mv.addEventListener('error', (e) => console.error('[mv] Error event:', e));
+    tone-mapping="aces"
+    shadow-intensity="1tListener('error', (e) => console.error('[mv] Error event:', e));
   </script>
-
-  <noscript>
-    Please enable JavaScript to view the 3D model.
-  </noscript>
 </body>
+</html>
