@@ -3,9 +3,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>3D Model Viewer</title>
 
+  <!-- Load model-viewer once -->
   <script type="module">
     import 'https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/dist/model-viewer.min.js';
     console.log('[init] model-viewer loaded');
@@ -14,18 +16,14 @@
   <style>
     html, body { height: 100%; margin: 0; }
     body { display: grid; place-items: center; background: #111; }
-    model-viewer { width: min(100%, 1000px); height: 70vh; background: #222; }
+    model-viewer { width: min(100%, 1000px); height: 70vh; background: #222; border-radius: 8px; }
   </style>
 </head>
 <body>
+
   <model-viewer id="mv"
-    src="./PumpRoom-comp.glb"
+    src="https://brintellieng.github.io/3d-model/PumpRoom-comp.glb?v=2"
+    poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect width='100%25' height='100%25' fill='%23222'/%3E%3Ctext x='50%25' y='50%25' fill='%23bbb' font-size='22' text-anchor='middle' dominant-baseline='middle'%3ELoading 3D model…%3C/text%3E%3C/svg%3E"
     camera-controls
     auto-rotate
     environment-image="neutral"
-    exposure="1.0"
-    tone-mapping="aces"
-    shadow-intensity="1tListener('error', (e) => console.error('[mv] Error event:', e));
-  </script>
-</body>
-</html>
