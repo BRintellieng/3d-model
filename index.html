@@ -1,53 +1,11 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>3D Model Viewer</title>
-
-  <!-- Load model-viewer (two CDNs; first that loads wins) -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.minjsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js</script>
-
-  <style>
-    html, body { height: 100%; margin: 0; }
-    body { display: grid; place-items: center; background: #f5f7fa; font-family: system-ui, Arial, sans-serif; }
-    h1 { margin: 16px 0 0; font-size: 18px; color: #333; }
-    .wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; width: min(100%, 960px); }
-    model-viewer { width: 100%; height: 600px; background: #fff; }
-    .note { color: #666; font-size: 14px; }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <h1>GitHub Pages + &lt;model-viewer&gt; Demo</h1>
-
-    <model-viewer id="mv"
-      src="PumpRoom-comp.glb"            <!-- exact filename; case-sensitiveodes="webxr scene-viewer quick-look"
-      environment-image="neutral"
-      exposure="1"
-      poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'%3E%3Crect width='100%25' height='100%25' fill='%23ffffff'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='28' fill='%23999'%3ELoading model...%3C/text%3E%3C/svg%3E">
-    </model-viewer>
-
-    <div class="note">If the model doesn’t appear - open DevTools → Console and check for errors.</div>
-  </div>
-
-  <script>
-    const mv = document.getElementById('mv');
-
-    // Log any model-viewer errors
-    mv.addEventListener('error', (e) => {
-      console.error('model-viewer error event:', e);
-      // Try absolute path in case relative fails due to project pages pathing:
-      const absolute = 'https://brintellieng.github.io/3d-model/PumpRoom-comp.glb';
-      console.log('Trying absolute path:', absolute);
-      mv.setAttribute('src', absolute);
-    });
-
-    // Confirm when loaded
-    mv.addEventListener('load', () => {
-      console.log('Model loaded successfully');
-    });
-  </script>
-</body>
+<!doctype html>
+<html>
+  <meta charset="utf-8">
+  <title>Pages Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <body style="font-family: system-ui; margin: 2rem;">
+    <h1>GitHub Pages is working</h1>
+    <p>If you see this, we’ll add the 3D viewer next.</p>
+  </body>
 </html>
